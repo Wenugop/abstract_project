@@ -4,14 +4,23 @@ import os
 import errno
 import DirectoryWrapper
 import XMLTreeWrapper
+import Constants
 from datetime import timedelta, datetime
 
 def main():
-    #first create our directory
+    #init the constants first. Without that, you have nothing
+    Constants.init()
+    print("Printing from main: " + Constants.KeepDirectory)
+    # first create our directory
     startTime = datetime.now()
+    print('----------------- time now is ----------------------')
+    print(startTime)
+    print('----------------------------------------------------')
+    print()
+    print()
     _directoryWrapper = DirectoryWrapper.DirectoryWrapper()
-    print('Creating the "Keep" folder')
-    _directoryWrapper.makeFolder('Keep')
+    print('Creating the "Keep_Abstract" folder')
+    _directoryWrapper.makeFolder("Keep_Abstract")
     print('writing out each file')
     _xmlTreeWrapper = XMLTreeWrapper.XMLTreeWrapper()
     _xmlTreeWrapper.writeXMLTree('List_of_150.txt')
